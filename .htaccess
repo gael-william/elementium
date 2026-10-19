@@ -1,0 +1,11 @@
+# Hébergement mutualisé (Hostinger) : la racine du site ne peut pas pointer sur public/,
+# on y redirige donc toutes les requêtes. Le code et le .env restent inaccessibles depuis le web.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Ceinture et bretelles : interdit l'accès direct aux fichiers sensibles.
+<FilesMatch "^(\.env.*|composer\.(json|lock)|artisan|package\.json|phpunit\.xml)$">
+    Require all denied
+</FilesMatch>

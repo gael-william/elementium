@@ -1,7 +1,7 @@
 # Élémentium Studio — plateforme audiovisuelle
 
 Site vitrine + galerie vidéo + espace d'administration d'Élémentium Studio (Laravel 13, PHP 8.3+).
-Reconstruit à partir de la sauvegarde navigateur de l'ancien site (`../Élémentium Studio - Création Audiovisuelle Innovante.html`).
+Reconstruit à partir de la sauvegarde navigateur de l'ancien site.
 
 ## Lancer le site en local
 
@@ -10,7 +10,7 @@ cd C:\xampp\htdocs\elementium\platform
 php artisan serve            # → http://127.0.0.1:8000
 ```
 
-Avec Apache (XAMPP démarré) : http://localhost/elementium/platform/public
+Avec Apache (XAMPP démarré) : http://localhost/elementium/public
 
 Première installation sur une autre machine :
 
@@ -55,4 +55,4 @@ Les fichiers envoyés depuis l'admin sont stockés dans `public/uploads/`.
 1. `.env` : `APP_ENV=production`, `APP_DEBUG=false`, `APP_URL=https://elementiumstudio.com`.
 2. E-mails : le formulaire de contact enregistre toujours le message en base ; pour recevoir aussi un e-mail, configurez `MAIL_MAILER=smtp` et les `MAIL_*` (ex. un mot de passe d'application Gmail).
 3. Envoi de vidéos : PHP limite par défaut les envois à 2 Mo. Dans `php.ini`, augmentez `upload_max_filesize` et `post_max_size` (ex. `256M`) pour accepter des fichiers vidéo.
-4. Le serveur web doit pointer sur le dossier `public/`.
+4. Le serveur web doit pointer sur le dossier `public/`. Sur un hébergement mutualisé (Hostinger) où ce n'est pas possible, le `.htaccess` à la racine du projet redirige automatiquement toutes les requêtes vers `public/` et bloque l'accès au `.env`.
